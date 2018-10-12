@@ -1,0 +1,22 @@
+{% extends "parts/templates/index.html" %}
+{% block content %}
+    <h2 align="center">Customers</h2>
+    <table class="table">
+     <thead>
+    <tr>
+      <th>#</th>
+      <th>Company name</th>
+      <th>Company address</th>
+    </tr>
+  </thead>
+   {% for i in customers %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ i.id }}</th>
+      <td><a  href="/customers/{{ i.name }}">{{ i.name }}</a></td>
+      <td>{{ i.address }}</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

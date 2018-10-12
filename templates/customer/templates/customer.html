@@ -1,0 +1,37 @@
+{% extends 'parts/templates/index.html' %}>
+{% block content %}
+    <h2 align="center">{{ Customer }}</h2>
+    <table class="table">
+     <thead>
+    <tr>
+      <th>#</th>
+      <th>UPS</th>
+      <th>serial number</th>
+      <th>Battery</th>
+      <th>Quantity</th>
+      <th>Battery date</th>
+      <th>Input caps</th>
+      <th>Output caps</th>
+      <th>DC caps</th>
+      <th>Photos</th>
+    </tr>
+  </thead>
+   {% for i in UPS %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ i.id }}</th>
+{#      <td><a  href="/customers/{{ i.name }}">{{ i.brand }}</a></td>#}
+      <td>{{ i.brand }} {{i.ups_model }} {{ i.power }} kVA</td>
+      <td>{{ i.serial_number}}</td>
+      <td>{{ i.battery_brand }} {{ i.battery_model }}</td>
+      <td> {{ i.battery_string }} x {{ i.battery_quantity }}</td>
+      <td>{{ i.battery_date }}</td>
+      <td>{{ i.input_cap_date }}</td>
+      <td>{{ i.output_cap_date }}</td>
+      <td>{{ i.dc_cap_date }}</td>
+      <td><a href="/customers/{{ Customer }}/{{ i.serial_number }}/">photo</a> </td>
+
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

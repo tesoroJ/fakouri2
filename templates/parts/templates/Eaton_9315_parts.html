@@ -1,0 +1,27 @@
+{% extends "parts/templates/index.html" %}
+{% block content %}
+
+    <h2 align="center">{{ power }}kVA</h2>
+    <table class="table" >
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>OEM Name</th>
+      <th>Description</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+        {% for j in UPS %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ j.description }}</th>
+      <td>{{ j.parts.part_number }}</td>
+      <td>{{ j.parts.values }}</td>
+      <td>{{ j.quantity }}</td>
+    </tr>
+        {% endfor %}
+{#    #}
+  </tbody>
+</table>
+    <br>
+{% endblock %}
